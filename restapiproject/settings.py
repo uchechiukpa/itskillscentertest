@@ -25,14 +25,21 @@ SECRET_KEY = 'f02s6_-fne_f4+86e@ig+&22!wil_a90yap^aia#)k635o*req'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CSRF_COOKIE_NAME = "csrftoken"
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = False
 
+# CORS_ORIGIN_WHITELIST = (
+#     'http//:localhost:3000',
+# )
 
 # Application definition
 
 INSTALLED_APPS = [
     'apiproject',
     'rest_framework',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
