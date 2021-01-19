@@ -26,13 +26,7 @@ SECRET_KEY = 'f02s6_-fne_f4+86e@ig+&22!wil_a90yap^aia#)k635o*req'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_COOKIE_NAME = "csrftoken"
-CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ALLOW_CREDENTIALS = False
 
-# CORS_ORIGIN_WHITELIST = (
-#     'http//:localhost:3000',
-# )
 
 # Application definition
 
@@ -79,7 +73,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'restapiproject.wsgi.application'
 
-
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000"
+]
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
